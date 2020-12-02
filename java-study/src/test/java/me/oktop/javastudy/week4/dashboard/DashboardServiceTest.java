@@ -34,17 +34,21 @@ class DashboardServiceTest {
         for (int i = 1; i <= 2; i++) {
             GHIssue issue = ghRepository.getIssue(i);
             PagedIterable<GHIssueComment> ghIssueComments = issue.listComments();
-            String temp = "";
+            Map<String, Integer> duplicationMap = new HashMap<>();
             for (GHIssueComment comment : ghIssueComments) {
                 String username = comment.getUser().getLogin();
-                if (temp.equals(username))
+                if (isDuplicate(username, duplicationMap))
                     continue;
 
-                temp = username;
                 participantMap.put(username, participantMap.getOrDefault(username, 0) + 1);
             }
         }
         return participantMap;
+    }
+
+    private boolean isDuplicate(String username, Map<String, Integer> duplicationMap) {
+        duplicationMap.put(username, duplicationMap.getOrDefault(username, 0) + 1);
+        return duplicationMap.get(username) > 1;
     }
 
 }
