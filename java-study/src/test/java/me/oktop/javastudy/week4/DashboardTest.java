@@ -1,4 +1,4 @@
-package me.oktop.javastudy.week4.dashboard;
+package me.oktop.javastudy.week4;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootTest
-class DashboardServiceTest {
+class DashboardTest {
 
     @Value("${token.value}")
     private String token;
