@@ -2,6 +2,8 @@ package me.oktop.javastudy.week4;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ListNodeTest {
@@ -21,8 +23,19 @@ class ListNodeTest {
         first.next(second);
 
         ListNode newNode = ListNode.of(30);
-//        ListNode.add(head, newNode, 1);
-//        validation(head, 1, 30, 15, 50);
+        ListNode.add(head, newNode, 1);
+        validation(head, 1, 30, 15, 50);
+    }
+
+    @Test
+    void add_head_test() {
+        ListNode head = ListNode.of(1);
+        ListNode first = ListNode.of(15);
+        ListNode second = ListNode.of(50);
+        head.next(first);
+        first.next(second);
+
+        ListNode newNode = ListNode.of(30);
         newNode.next(head);
         validation(newNode, 30, 1, 15, 50);
     }
@@ -32,6 +45,7 @@ class ListNodeTest {
             assertThat(node.getValue()).isEqualTo(value[i]);
             node = node.getNext();
         }
+        new LinkedList<>();
     }
 
 

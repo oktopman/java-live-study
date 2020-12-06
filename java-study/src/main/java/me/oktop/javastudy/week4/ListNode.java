@@ -34,6 +34,9 @@ public class ListNode {
     }
 
     public static void add(ListNode temp, ListNode nodeToAdd, int position) {
+        if (position < 1) {
+            throw new IllegalArgumentException("position 값이 1보다 작습니다.");
+        }
         for (int i = 0; i < position - 1; i++) {
             temp = temp.next;
         }
