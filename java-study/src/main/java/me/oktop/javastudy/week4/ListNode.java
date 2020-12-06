@@ -33,15 +33,31 @@ public class ListNode {
         return next;
     }
 
-    public static void add(ListNode temp, ListNode nodeToAdd, int position) {
+    public static void add(ListNode head, ListNode nodeToAdd, int position) {
         if (position < 1) {
             throw new IllegalArgumentException("position 값이 1보다 작습니다.");
         }
         for (int i = 0; i < position - 1; i++) {
-            temp = temp.next;
+            head = head.next;
         }
-        nodeToAdd.next = temp.next;
-        temp.next = nodeToAdd;
+        nodeToAdd.next = head.next;
+        head.next = nodeToAdd;
+    }
+
+    public static void remove(ListNode head, int positionToRemove) {
+        for (int i = 0; i < positionToRemove - 1; i++) {
+            head = head.next;
+        }
+        head.next = head.next.next;
+    }
+
+    public static boolean contains(ListNode head, ListNode nodeToCheck) {
+        while (head != null) {
+            if (head.value == nodeToCheck.value)
+                return true;
+            head = head.next;
+        }
+        return false;
     }
 
 }
