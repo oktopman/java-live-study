@@ -13,7 +13,10 @@ public class ListNode {
     private int value;
     private  ListNode next;
 
-    private ListNode(int value) {
+    public ListNode() {}
+
+
+    ListNode(int value) {
         this.value = value;
     }
 
