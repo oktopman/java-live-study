@@ -22,4 +22,5 @@ public interface Bank {
 }
 ```
 
+## 인터페이스 구현하는 방법
 
