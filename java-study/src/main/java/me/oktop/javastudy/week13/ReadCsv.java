@@ -1,5 +1,8 @@
 package me.oktop.javastudy.week13;
 
+import me.oktop.javastudy.week9.Ex;
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -7,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class ReadCsv {
 
@@ -16,10 +21,10 @@ public class ReadCsv {
             List<Vo> vos = new ArrayList<>();
 
             while ((line = br.readLine()) != null) {
-                String[] array = line.split(",");
+                String[] array = line.split(",", -1);
                 Vo vo = new Vo();
-                vo.setName(array[0]);
-                vo.setAmount(new BigDecimal(array[1]));
+                vo.setName(StringUtils.isEmpty(array[0]) ? null : array[0]);
+                vo.setAmount(value(() -> new BigDecimal(array[1]), null));
                 vos.add(vo);
             }
             vos.stream()
@@ -30,4 +35,14 @@ public class ReadCsv {
 //            logger.error("message............. {}", e);
         }
     }
+
+    static <T> T value(Supplier<T> supplier, T defaultValue) {
+        try {
+            T t = supplier.get();
+            return t;
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
 }
