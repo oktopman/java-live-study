@@ -48,9 +48,9 @@ public class FruitTest {
         bananas = bananaRepository.findAll();
         System.out.println("bananas size: " + bananas.size());
 
-//        FruitTest fruitTest = new FruitTest();
-//        Orange orange = new Orange();
-//        fruitTest.send(1L, apple, Apple.class);
+        Orange orange = new Orange();
+        FruitTest fruitTest = new FruitTest();
+        fruitTest.send(1L, apple, Apple.class);
 
     }
 
