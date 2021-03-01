@@ -1,6 +1,5 @@
 package me.oktop.javastudy.week13;
 
-import me.oktop.javastudy.week9.Ex;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
@@ -10,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ReadCsv {
