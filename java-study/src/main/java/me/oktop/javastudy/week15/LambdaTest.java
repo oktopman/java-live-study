@@ -1,6 +1,7 @@
 package me.oktop.javastudy.week15;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -14,6 +15,12 @@ public class LambdaTest {
             e.printStackTrace();
         }
         return line;
+    }
+
+    public static String processFile(String filePath) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            return br.readLine();
+        }
     }
 
     public static void main(String[] args) {
