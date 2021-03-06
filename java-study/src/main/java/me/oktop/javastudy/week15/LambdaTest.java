@@ -27,7 +27,5 @@ public class LambdaTest {
     public static void main(String[] args) {
         BufferedReaderProcessor bufferedReaderProcessor = br -> br.readLine() + br.readLine();
         processFile(bufferedReaderProcessor, "aaa.txt");
-        Supplier<Members> membersSupplier = Members::new;
-        Members members = membersSupplier.get();
     }
 }
