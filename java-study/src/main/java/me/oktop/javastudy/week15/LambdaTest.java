@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.function.Supplier;
 
 public class LambdaTest {
 
@@ -26,6 +27,7 @@ public class LambdaTest {
     public static void main(String[] args) {
         BufferedReaderProcessor bufferedReaderProcessor = br -> br.readLine() + br.readLine();
         processFile(bufferedReaderProcessor, "aaa.txt");
-
+        Supplier<Members> membersSupplier = Members::new;
+        Members members = membersSupplier.get();
     }
 }
